@@ -11,13 +11,14 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey("up"))
+        if (Input.GetKey("up")|| Input.GetKey("w"))
             this.GetComponent<Rigidbody>().AddForce(transform.forward * 20);
-        if (Input.GetKey("down"))
+        if (Input.GetKey("down")|| Input.GetKey("s"))
             this.GetComponent<Rigidbody>().AddForce(-transform.forward * 20);
-        if (Input.GetKey("left"))
+        if (Input.GetKey("left")|| Input.GetKey("a"))
             this.GetComponent<Rigidbody>().AddForce(-transform.right * 20);
-        if (Input.GetKey("right"))
+        if (Input.GetKey("right")|| Input.GetKey("d"))
             this.GetComponent<Rigidbody>().AddForce(transform.right * 20);
+
     }
 }
