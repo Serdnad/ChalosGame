@@ -13,11 +13,11 @@ public class Player : MonoBehaviour {
 	void Update () {
         if (Input.GetKey("up"))
             this.GetComponent<Rigidbody>().AddForce(transform.forward * 15);
-        else if (Input.GetKey("down"))
+        if (Input.GetKey("down"))
             this.GetComponent<Rigidbody>().AddForce(-transform.forward * 15);
-        else if (Input.GetKey("left"))
+        if (Input.GetKey("left"))
             this.GetComponent<Rigidbody>().AddForce(-transform.right * 15);
-        else if (Input.GetKey("right"))
+        if (Input.GetKey("right"))
             this.GetComponent<Rigidbody>().AddForce(transform.right * 15);
     }
 }
