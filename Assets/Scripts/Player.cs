@@ -4,10 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-
+    // Use this for initialization
+    void Start () {
     }
 	
 	// It is recommended to use FixedUpdate for calculating forces/movement
@@ -20,6 +18,8 @@ public class Player : MonoBehaviour {
             this.GetComponent<Rigidbody>().AddForce(-transform.right * 20);
         if (Input.GetKey("right")|| Input.GetKey("d"))
             this.GetComponent<Rigidbody>().AddForce(transform.right * 20);
+        if (gameObject.transform.position.y<-15)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
 
     }
 
@@ -27,7 +27,8 @@ public class Player : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Goal"))
         {
-            Application.LoadLevel("Level 1");
+            int index = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(index+1,LoadSceneMode.Single);
         }
     }
 
