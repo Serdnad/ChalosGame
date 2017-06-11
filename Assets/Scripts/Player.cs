@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -21,4 +22,13 @@ public class Player : MonoBehaviour {
             this.GetComponent<Rigidbody>().AddForce(transform.right * 20);
 
     }
+
+    void OnTriggerEnter(Collider goal)
+    {
+        if (goal.gameObject.CompareTag("Goal"))
+        {
+            SceneManager.LoadScene("Level 1", LoadSceneMode.Single);
+        }
+    }
+
 }
