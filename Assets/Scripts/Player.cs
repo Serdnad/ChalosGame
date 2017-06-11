@@ -9,8 +9,8 @@ public class Player : MonoBehaviour {
 
     }
 	
-	// Update is called once per frame
-	void Update () {
+	// It is recommended to use FixedUpdate for calculating forces/movement
+	void FixedUpdate () {
         if (Input.GetKey("up")|| Input.GetKey("w"))
             this.GetComponent<Rigidbody>().AddForce(transform.forward * 20);
         if (Input.GetKey("down")|| Input.GetKey("s"))

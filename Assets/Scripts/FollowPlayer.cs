@@ -16,10 +16,11 @@ public class FollowPlayer : MonoBehaviour {
         offset = transform.position - player.transform.position;
     }
 
-    // LateUpdate is called after Update each frame
-    void LateUpdate()
+    // FixedUpdate is called through evenly spaced time intervals, regardless of framerate.
+    void FixedUpdate()
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-        transform.position = player.transform.position + offset;
+        //Vector3.Lerp moves the object to the target incrementally. The resulting effect gives a sense of movement.
+        transform.position = Vector3.Lerp(this.transform.position, player.transform.position + offset, 0.1f);
     }
 }
