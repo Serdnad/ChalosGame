@@ -18,7 +18,9 @@ public class Player : MonoBehaviour {
             this.GetComponent<Rigidbody>().AddForce(-transform.right * 20);
         if (Input.GetKey("right")|| Input.GetKey("d"))
             this.GetComponent<Rigidbody>().AddForce(transform.right * 20);
-        if (gameObject.transform.position.y<-15)
+
+
+        if (gameObject.transform.position.y<-8)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
 
     }
