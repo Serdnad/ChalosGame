@@ -23,11 +23,11 @@ public class Player : MonoBehaviour {
 
     }
 
-    void OnTriggerEnter(Collider goal)
+    void OnTriggerEnter(Collider collision)
     {
-        if (goal.gameObject.CompareTag("Goal"))
+        if (collision.gameObject.CompareTag("Goal"))
         {
-            SceneManager.LoadScene("Level 1", LoadSceneMode.Single);
+            Application.LoadLevel("Level 1");
         }
     }
 
