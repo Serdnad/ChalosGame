@@ -16,18 +16,6 @@ public class PlayerCollisions : MonoBehaviour {
 		
 	}
 
-    IEnumerator deathTimer()
-    {
-        Destroy(GetComponent<Rigidbody>());
-        Destroy(GetComponent<MeshFilter>());
-        Destroy(GetComponent<BoxCollider>());
-        Destroy(GetComponent<PlayerMovement>());
-        Vector3 updatedposition = transform.position;
-        Instantiate(playerdeath, updatedposition, transform.rotation);
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
-    }
-
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Goal"))
@@ -38,7 +26,8 @@ public class PlayerCollisions : MonoBehaviour {
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            StartCoroutine(deathTimer());
+            Instantiate(playerdeath, transform.position, transform.rotation);
+            Destroy(this.gameObject);
         }
     }
 }

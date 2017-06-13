@@ -7,21 +7,13 @@ public class MovingPlatform : MonoBehaviour
 
     float min;
     float max;
-    public float xdistance=0f;
+    public float xdistance = 0;
+
     // Use this for initialization
     void Start()
     {
-        if (xdistance > 0)
-        {
-            min = transform.position.x;
-            max = transform.position.x + xdistance;
-        }
-        if (xdistance < 0)
-        {
-            min = transform.position.x;
-            max = transform.position.x - xdistance;
-        }
-
+        min = transform.position.x;
+        max = min + Mathf.Abs(xdistance);
     }
 
     // Update is called once per frame

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
+
     public int speed;
     public int range;
     public GameObject player;
@@ -15,12 +16,15 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(player.transform.position, transform.position);
-        Vector3 localPosition = player.transform.position - transform.position;
-        localPosition = localPosition.normalized; // The normalized direction in LOCAL space
-        if (distance<range)
+        if (player)
         {
-            transform.Translate(localPosition.x * Time.deltaTime * speed, localPosition.y * Time.deltaTime * speed, localPosition.z * Time.deltaTime * speed);
+            float distance = Vector3.Distance(player.transform.position, transform.position);
+            Vector3 localPosition = player.transform.position - transform.position;
+            localPosition = localPosition.normalized; // The normalized direction in LOCAL space
+            if (distance < range)
+            {
+                transform.Translate(localPosition.x * Time.deltaTime * speed, localPosition.y * Time.deltaTime * speed, localPosition.z * Time.deltaTime * speed);
+            }
         }
     }
 }
